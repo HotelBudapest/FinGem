@@ -24,14 +24,16 @@ class User
             if amount < @balance
                 @balance -= amount
                 puts "\nTransaction Occured!\nAmount Deducated: -#{amount}\nBalance: #{@balance}"
-                @prevTransactions.push(Transaction.new(amount, type))
+                @prevTransactions.push(Transaction.new(amount, type, Time.now))
+                updatePrevLs()
             elsif amount > @balance
                 print "\n\nTransaction amount exceeds current Balance! Do you wish to proceed?(Y/N): "
                 proceed = gets.chomp().downcase
                 if proceed == "y"
                     @balance -= amount
                     puts "\nTransaction Occured!\nAmount Deducated: -#{amount}\nBalance: #{@balance}"
-                    @prevTransactions.push(Transaction.new(amount, type))
+                    @prevTransactions.push(Transaction.new(amount, type, Time.now))
+                    updatePrevLs()
                 end
             end
         else
@@ -40,9 +42,21 @@ class User
     end
 
     def getPrevTransactions
-        puts "\nYOUR PREVIOUS TRANSACTIONS: "
+        puts "\nYOUR PREVIOUS 5 TRANSACTIONS: "
         for index in 0..(prevTransactions.length - 1)
-            puts "\n\nTransaction Type: #{prevTransactions[index].type}\nAmount Deducted: #{prevTransactions[index].amount}\n"
+            puts "\n\nTransaction Type: #{prevTransactions[index].type}\nAmount Deducted: #{prevTransactions[index].amount}\nTime of Transaction: #{prevTransactions[index].time}"
+        end
+    end
+
+    def updatePrevLs 
+        if @prevTransactions.length > 5
+            temp = []
+            i = 0
+            for index in 1...(@prevTransactions.length)
+                temp[i] = @prevTransactions[index]
+                i += 1
+            end
+            @prevTransactions = temp.clone
         end
     end
 
