@@ -4,8 +4,12 @@ class Transaction
 
     def initialize(am, typ, time)
         @amount = am
-        @type = typ
+        @type = typ.upcase
         @time = time
     end
 
 end
+
+class PendingTransaction < Transaction
+    
+end 
