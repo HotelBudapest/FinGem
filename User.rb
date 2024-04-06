@@ -40,14 +40,16 @@ class User
                 elsif amount > @balance
                     while true
                         print "\n\nTransaction amount exceeds current Balance! Do you wish to proceed?(Y/N): "
-                        proceed = gets.chomp().downcase
-                        if proceed == "y" || proceed == "n"
+                        proceed = false
+                        input = gets.chomp().downcase
+                        if input == "y" || input == "n"
+                            proceed = true
                             break
                         else
                             puts "\nInvalid type"
                         end 
                     end
-                    if proceed == "y"
+                    if proceed && input == "y"
                         @balance -= amount
                         puts "\nTransaction Occured!\nAmount Deducated: -#{amount}$\nBalance: #{@balance}"
                         @prevTransactions.push(Transaction.new(amount, type, Time.now.strftime("%Y-%m-%d %H:%M:%S")))
