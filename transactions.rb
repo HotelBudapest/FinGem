@@ -24,8 +24,7 @@ class PendingTransaction < Transaction
     
     def deadline
         if @time.split(" ")[0] == Date.today.to_s
-            puts "!!!--------"
-            puts "\nThe Following transaction is to happen today: "
+            puts "\n!!!--------The Following transaction is to happen today: "
             puts self.str_out
         end 
     end
