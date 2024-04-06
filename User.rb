@@ -110,9 +110,9 @@ class User
         pendingAmount = 0
         while i < @pendingTransactions.length
             if @pendingTransactions[i].type == "IN"
-                pendingAmount += @pendingTransactions[i].amount
+                pendingAmount += @pendingTransactions[i].getAmount
             else 
-                pendingAmount -= @pendingTransactions[i].amount
+                pendingAmount -= @pendingTransactions[i].getAmount
             end
             @pendingTransactions[i].deadline
             i += 1
