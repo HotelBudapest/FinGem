@@ -38,8 +38,15 @@ class User
                     updatePrevLs()
 
                 elsif amount > @balance
-                    print "\n\nTransaction amount exceeds current Balance! Do you wish to proceed?(Y/N): "
-                    proceed = gets.chomp().downcase
+                    while true
+                        print "\n\nTransaction amount exceeds current Balance! Do you wish to proceed?(Y/N): "
+                        proceed = gets.chomp().downcase
+                        if proceed == "y" || proceed == "n"
+                            break
+                        else
+                            puts "\nInvalid type"
+                        end 
+                    end
                     if proceed == "y"
                         @balance -= amount
                         puts "\nTransaction Occured!\nAmount Deducated: -#{amount}$\nBalance: #{@balance}"
@@ -47,8 +54,6 @@ class User
                         updatePrevLs()
                     end
                 end
-            else
-                puts "\nInvalid type"
             end
         else
             puts "Error! Transactions should be of type Number"
@@ -58,7 +63,7 @@ class User
     def getPrevTransactions
         puts "\nYOUR PREVIOUS #{@prevTransactions.length} TRANSACTIONS: "
         for index in 0..(@prevTransactions.length - 1)
-            puts "\n\nTransaction Type: #{@prevTransactions[index].type}\nAmount: #{@prevTransactions[index].amount}$\nTime of Transaction: #{@prevTransactions[index].time}"
+            puts @prevTransactions[index].str_out
         end
     end
 
@@ -76,8 +81,16 @@ class User
 
     def addPendingTransaction
         puts "\n\n- Initializing Pending Transaction -"
-        print "Enter amount: "
-        amount = gets.chomp().to_f
+        while true
+            print "Enter amount: "
+            amount_input = gets.chomp()
+            if !(amount_input.match?(/\A-?\d+(\.\d+)?\z/))
+                puts "\nInvalid Entry! Amount must be a Number. Try Again"
+            else
+                break
+            end
+        end
+        amount = amount_input.to_f
         print "Enter type: "
         type = gets.chomp()
         print "Enter time (Y-M-D H:M:S): "
@@ -88,7 +101,7 @@ class User
     def getPendingTransactions 
         puts "\nYOUR PENDING TRANSACTIONS: "
         for index in 0..(@pendingTransactions.length - 1)
-            puts "\n\nTransaction Type: #{@pendingTransactions[index].type}\nAmount: #{@pendingTransactions[index].amount}$\nTime of Transaction: #{@pendingTransactions[index].time}"
+            puts @pendingTransactions[index].str_out
         end
     end 
 
@@ -101,6 +114,7 @@ class User
             else 
                 pendingAmount -= @pendingTransactions[i].amount
             end
+            @pendingTransactions[i].deadline
             i += 1
         end 
         puts "\n\nUserName: #{@name}\nAccount Balance: #{@balance}$\nPending Transactions: #{@pendingTransactions.length}\nPending Amount: #{pendingAmount}$"

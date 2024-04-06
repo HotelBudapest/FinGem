@@ -8,8 +8,9 @@ person.transactionOccured(21, "OUT")
 person.transactionOccured(60.12, "IN")
 person.transactionOccured(21, "OUT")
 person.transactionOccured(60.12, "IN")
-person.transactionOccured(21, "OUT")
+person.transactionOccured(900, "OUT")
 
+person.addPendingTransaction
 person.addPendingTransaction
 
 person.getPrevTransactions
