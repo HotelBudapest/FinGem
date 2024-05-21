@@ -6,6 +6,14 @@ $global_transaction_count = 0
 # The User class represents a user with a name, balance, and transaction history.
 class User
 
+    # @!attribute [rw] name
+    #   @return [String] the name of the user
+    # @!attribute [rw] balance
+    #   @return [Float] the balance of the user
+    # @!attribute [rw] prevTransactions
+    #   @return [Array<Transaction>] the previous transactions of the user
+    # @!attribute [rw] pendingTransactions
+    #   @return [Array<PendingTransaction>] the pending transactions of the user
     attr_accessor :name, :balance, :prevTransactions, :pendingTransactions
 
     # Initializes a new User instance.
