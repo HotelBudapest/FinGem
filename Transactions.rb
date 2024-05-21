@@ -3,7 +3,13 @@ require 'date'
 # The Transaction class represents a transaction.
 class Transaction
 
-    protected 
+    # @!attribute [rw] amount
+    #   @return [Numeric] the transacted amount
+    # @!attribute [rw] type
+    #   @return [String] the type of transaction (IN/OUT)
+    # @!attribute [rw] time
+    #   @return [String] time of the transaction taking place
+    protected
     attr_accessor :amount, :type, :time
 
     public
