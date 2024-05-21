@@ -20,7 +20,7 @@ To get started with RuboFIN, clone the repository and install the necessary depe
 ### Clone the repository
 
 ```sh
-git clone [https://github.com/your-username/RuboFIN.git](https://github.com/HotelBudapest/RuboFIN.git)
+git clone https://github.com/HotelBudapest/RuboFIN.git
 ```
 
 ### Navigate to the project directory
