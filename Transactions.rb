@@ -6,12 +6,12 @@ class Transaction
     protected 
     attr_accessor :amount, :type, :time
 
+    public
     # Initializes a new Transaction instance.
     #
     # @param am [Numeric] the amount of the transaction
     # @param typ [String] the type of the transaction ('IN' or 'OUT')
     # @param time [String] the time of the transaction
-    public
     def initialize(am, typ, time)
         @amount = am
         @type = typ.upcase
