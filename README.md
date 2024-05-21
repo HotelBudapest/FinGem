@@ -1,6 +1,6 @@
 # RuboFIN
 
-![RuboFIN Logo](images/logo.png)
+![RuboFIN Logo](RuboFIN Logo.webp)
 
 RuboFIN is a Ruby-based financial management system that allows users to manage their transactions and keep track of their account balance. It includes classes for handling users, transactions, and pending transactions. This project provides an interactive command-line interface (CLI) for managing and viewing transactions.
 
@@ -21,23 +21,23 @@ RuboFIN is a Ruby-based financial management system that allows users to manage 
 To get started with RuboFIN, clone the repository and install the necessary dependencies.
 
 
-## Clone the repository
+### Clone the repository
 
 ```sh
 git clone https://github.com/your-username/RuboFIN.git
 ```
 
-## Navigate to the project directory
+### Navigate to the project directory
 
 ```sh
 cd RuboFIN
 ```
 
-## Install any dependencies (if necessary)
+### Install any dependencies (if necessary)
 
 For example, if you use Bundler:
 ```sh
-# bundle install
+bundle install
 ```
 
 ## Usage
