@@ -114,6 +114,11 @@ Detailed documentation is generated using YARD. To generate the documentation, r
 ```sh
 yard doc mainInterface.rb User.rb Transactions.rb PendingTransactions.rb
 ```
+Optionally, a makefile has also been provided which can make the documentation with a more simplified command: 
+
+```sh
+make ruboDocs
+```
 
 You can view the generated documentation in the `doc` directory.
 
